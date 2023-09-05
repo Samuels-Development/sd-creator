@@ -1,6 +1,6 @@
 QBCore = exports['qb-core']:GetCoreObject()
 
-QBCore.Commands.Add('createItem', '', {}, false, function(source, args)
+QBCore.Commands.Add('createitem', '', {}, false, function(source, args)
     local src = source
     TriggerClientEvent('sd-itemcreator:client:openMenu', src, src)
 end,'admin')
