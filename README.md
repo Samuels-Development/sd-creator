@@ -1,6 +1,7 @@
 # sd-itemcreator
 
-Fairly basic. Admin's can do '/createitem' they then have an ox_lib input dialog in which they can set the item's information and once they press confirm, the full string for the items.lua will be written into the items.txt file in the root of the resource.
+It's relatively simple. Admins can use the '/createitem' command. After doing so, they'll see an "ox_lib" input dialog where they can set the item's details. Once they press "confirm," the complete string for the items.lua will be written into the items.txt file located in the resource's root directory.
+
 My discord is @ https://discord.gg/samueldev and my store is @ https://fivem.samueldev.shop
 
 # Preview
