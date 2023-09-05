@@ -4,7 +4,8 @@ Fairly basic. Admin's can do '/createitem' they then have an ox_lib input dialog
 My discord is @ https://discord.gg/samueldev and my store is @ https://fivem.samueldev.shop
 
 # Preview
-https://i.imgur.com/956DiuZ.png
+![image](https://github.com/Samuels-Development/sd-itemcreator/assets/99494967/935f8e44-7637-4334-ab8a-951da0617c81)
+
 
 # Dependencies
 - ox_lib
