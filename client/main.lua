@@ -15,10 +15,60 @@ local function registerItemDialog()
     return input
 end
 
-RegisterNetEvent('sd-itemcreator:client:openMenu', function()
+local function registerJobDialog()
+    return lib.inputDialog("Register a New Job", {
+        {type = 'input', label = 'Job Code', placeholder = 'jobcode', description = 'Unique name for the job', required = true},
+        {type = 'input', label = 'Job Label', placeholder = 'Job Label', description = 'Public name for the job', required = true},
+        {type = 'input', label = 'Type', placeholder = 'jobtype', description = 'Category or type of the job.'},
+        {type = 'checkbox', label = 'Default Duty?', description = 'Is this job a default duty?', checked = true},
+        {type = 'checkbox', label = 'Off Duty Pay?', description = 'Does this job get off-duty pay?', checked = false},
+    })
+end
+
+local function registerJobGradeDialog()
+    return lib.inputDialog("Add a Job Grade (Press 'Cancel' once done)", {
+        {type = 'input', label = 'Grade Code', placeholder = '0', description = 'Numeric grade for the job position (ex. 0 for recruit, 1 for officer, etc.)', required = true},
+        {type = 'input', label = 'Grade Name', placeholder = 'Grade Name', description = 'Name of the job grade (ex. Recruit, Officer, etc.)', required = true},
+        {type = 'checkbox', label = 'Is Boss?', description = 'Is this grade considered a boss position?', checked = false},
+        {type = 'number', label = 'Payment', placeholder = '50', description = 'Payment amount for this grade', required = true},
+    })
+end
+
+RegisterNetEvent('sd-itemcreator:client:openItemMenu', function()
     local input = registerItemDialog()
     if not input then return end
 
     -- Trigger server side event to save the data
     TriggerServerEvent('sd-itemcreator:server:saveItem', input)
+end)
+
+RegisterNetEvent('sd-jobcreator:client:openJobMenu', function(src)
+    local jobInput = registerJobDialog()
+    if not jobInput then return end  -- If the user cancelled the dialog
+
+    local grades = {}
+    while true do
+        local gradeInput = registerJobGradeDialog()
+        if not gradeInput then break end  -- If the user cancelled the grade dialog
+
+        local gradeCode = gradeInput[1]
+        local gradeDetails = {
+            name = gradeInput[2],
+            isboss = gradeInput[3],
+            payment = gradeInput[4]
+        }
+        grades[gradeCode] = gradeDetails
+    end
+
+    local jobData = {
+        code = jobInput[1],
+        label = jobInput[2],
+        type = jobInput[3],
+        defaultDuty = jobInput[4],
+        offDutyPay = jobInput[5],
+        grades = grades
+    }
+
+    -- Trigger server side event to save the job data
+    TriggerServerEvent('sd-jobcreator:server:saveJob', jobData)
 end)
