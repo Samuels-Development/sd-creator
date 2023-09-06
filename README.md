@@ -7,7 +7,7 @@ Admins can use the '/createitem' command. After doing so, they'll see an "ox_lib
 My discord is @ https://discord.gg/samueldev and my store is @ https://fivem.samueldev.shop
 
 # Preview
-https://cdn.discordapp.com/attachments/1002646303139958784/1148779016527020042/2023-09-06_02-33-32.mp4
+[https://cdn.discordapp.com/attachments/1002646303139958784/1148779016527020042/2023-09-06_02-33-32.mp4](https://streamable.com/n01zq6)
 
 # Dependencies
 - ox_lib
