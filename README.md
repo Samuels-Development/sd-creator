@@ -5,8 +5,7 @@ It's relatively simple. Admins can use the '/createitem' command. After doing so
 My discord is @ https://discord.gg/samueldev and my store is @ https://fivem.samueldev.shop
 
 # Preview
-![image](https://github.com/Samuels-Development/sd-itemcreator/assets/99494967/935f8e44-7637-4334-ab8a-951da0617c81)
-
+https://cdn.discordapp.com/attachments/1002646303139958784/1148779016527020042/2023-09-06_02-33-32.mp4
 
 # Dependencies
 - ox_lib
